@@ -1,0 +1,12 @@
+<div v-if="mostrarModal" class="modal">
+    <div class="modal-content">
+      <h2 class="carrito-titulo">Carrito de Compras</h2>
+      <br>
+      <div v-for="(item, index) in carrito" :key="index" class="carrito-item">
+        <span><img :src="item.producto.imagenSrc">  <span class="nombre"> {{ item.producto.nombre }}</span>  <span class="cantidad">{{ item.cantidad }}</span> <span class="precio">{{ item.producto.precio }}</span></span>
+        <button class="eliminar" @click="eliminarDelCarrito(index)">❌</button>
+      </div>
+      <p class="carrito-total">Total: {{ calcularTotal() }}</p>
+      <button class="cerrar-modal" @click="mostrarModal = false">cerrar</button>
+    </div>
+  </div>
